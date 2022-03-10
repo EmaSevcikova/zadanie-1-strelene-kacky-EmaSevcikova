@@ -1,27 +1,22 @@
 package sk.stuba.fei.uim.oop.hrac;
 
 public class Hrac {
-    private boolean aktivny;
+    private boolean aktivny = true;
     private int cisloHraca;
-    private int pocetKaciek;
+    private int pocetKaciek = 5;
 
 
-    public void setCisloHraca(int cisloHraca) {
-        this.cisloHraca = cisloHraca;
+    public Hrac(int cislo){
+        this.cisloHraca = cislo;
     }
 
-    public int getCisloHraca() {
-        return cisloHraca;
-    }
-
-    public void setPocetKaciek(int pocetKaciek) {
-        this.pocetKaciek = pocetKaciek;
-    }
 
     public int getPocetKaciek() {
         return pocetKaciek;
     }
-    public boolean jeAktivny(){
-        return getPocetKaciek() > 0;
+    public void jeAktivny() {
+        if(getPocetKaciek() <= 0){
+            this.aktivny = false;
+        }
     }
 }
