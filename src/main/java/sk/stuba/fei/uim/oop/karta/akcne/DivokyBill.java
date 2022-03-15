@@ -11,13 +11,13 @@ import java.util.LinkedList;
 public class DivokyBill extends AkcnaKarta{
 
     @Override
-    public void akciaKarty(boolean[] zameriavace, ArrayList<Karta> rybnik, BalicekKackyVoda balicek, Hrac[] hraci){
+    public void akciaKarty(HraciePole rybnik, BalicekKackyVoda balicek, Hrac[] hraci){
         int n = KeyboardInput.readInt("Zadaj poziciu karty: ");
 
         this.vystrelNaKacku(n,rybnik,balicek,hraci);
 
-        if (zameriavace[n+1]){
-            zameriavace[n+1] = false;
+        if (rybnik.getZameriavace()[n+1]){
+            rybnik.getZameriavace()[n+1] = false;
         }
     }
 }

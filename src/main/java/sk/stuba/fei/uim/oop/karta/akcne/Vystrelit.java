@@ -1,6 +1,7 @@
 package sk.stuba.fei.uim.oop.karta.akcne;
 
 import sk.stuba.fei.uim.oop.karta.BalicekKackyVoda;
+import sk.stuba.fei.uim.oop.karta.HraciePole;
 import sk.stuba.fei.uim.oop.karta.Kacka;
 import sk.stuba.fei.uim.oop.karta.Karta;
 import sk.stuba.fei.uim.oop.hrac.Hrac;
@@ -12,12 +13,12 @@ import java.util.LinkedList;
 public class Vystrelit extends AkcnaKarta{
 
     @Override
-    public void akciaKarty(boolean[] zameriavace, ArrayList<Karta> rybnik, BalicekKackyVoda balicek, Hrac[] hraci){
+    public void akciaKarty(HraciePole rybnik, BalicekKackyVoda balicek, Hrac[] hraci){
         int n = KeyboardInput.readInt("Zadaj poziciu karty: ");
 
-        if (zameriavace[n+1]){
+        if (rybnik.getZameriavace()[n+1]){
             this.vystrelNaKacku(n,rybnik,balicek,hraci);
-            zameriavace[n+1] = false;
+            rybnik.getZameriavace()[n+1] = false;
         }
     }
 

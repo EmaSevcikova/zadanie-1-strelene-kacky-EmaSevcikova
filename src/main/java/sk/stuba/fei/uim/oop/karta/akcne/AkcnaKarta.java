@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public abstract class AkcnaKarta {
 
-    public abstract void akciaKarty(boolean[] zameriavace, ArrayList<Karta> rybnik, BalicekKackyVoda balicek, Hrac[] hraci);
+    public abstract void akciaKarty( HraciePole rybnik, BalicekKackyVoda balicek, Hrac[] hraci);
 
-    public void vystrelNaKacku(int n,ArrayList<Karta> rybnik, BalicekKackyVoda balicek, Hrac[] hraci){
-        if (rybnik.get(n+1) instanceof Kacka){
-            rybnik.remove(n+1);
-            rybnik.add(balicek.getBalicekKackyVoda().getFirst());
-            Karta kacka = rybnik.get(n+1);
+    public void vystrelNaKacku(int n,HraciePole rybnik, BalicekKackyVoda balicek, Hrac[] hraci){
+        if (rybnik.getRybnik().get(n+1) instanceof Kacka){
+            rybnik.getRybnik().remove(n+1);
+            rybnik.getRybnik().add(balicek.getBalicekKackyVoda().getFirst());
+            Karta kacka = rybnik.getRybnik().get(n+1);
             hraci[kacka.getKohoKacka()].zastrelKacku();
         }
     }
