@@ -1,4 +1,16 @@
 package sk.stuba.fei.uim.oop.karta.akcne;
 
-public class Rosambo {
-}
+import sk.stuba.fei.uim.oop.hrac.Hrac;
+import sk.stuba.fei.uim.oop.karta.BalicekKackyVoda;
+import sk.stuba.fei.uim.oop.karta.Karta;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Rosambo extends AkcnaKarta{
+
+    @Override
+    public void akciaKarty(boolean[] zameriavace, ArrayList<Karta> rybnik, BalicekKackyVoda balicek, Hrac[] hraci) {
+        Collections.shuffle(rybnik);
+    }
+    }

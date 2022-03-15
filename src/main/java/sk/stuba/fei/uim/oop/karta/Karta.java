@@ -4,6 +4,9 @@ import sk.stuba.fei.uim.oop.hrac.Hrac;
 
 public abstract class Karta {
 
-    public abstract void aktivnyHrac(Hrac hrac);
+    protected int kohoKacka;
 
+    public int getKohoKacka() {
+        return kohoKacka;
+    }
 }
