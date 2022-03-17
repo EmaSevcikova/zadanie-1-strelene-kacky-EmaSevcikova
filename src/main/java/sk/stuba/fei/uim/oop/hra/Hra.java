@@ -1,6 +1,7 @@
 package sk.stuba.fei.uim.oop.hra;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import sk.stuba.fei.uim.oop.utility.KeyboardInput;
 public class Hra {
 
     private Hrac[] hraci;
+    private HraciePole rybnik;
 
     public void zacniHru(){
 
@@ -30,8 +32,7 @@ public class Hra {
             akcneKarty.add(new KacaciPochod());
         }
 
-        BalicekAkcnychKariet balicekAkcnychKariet = new BalicekAkcnychKariet(akcneKarty);
-        balicekAkcnychKariet.zamiesajKarty();
+        Collections.shuffle(akcneKarty);
 
         List<Karta> kackyVoda = new ArrayList<>();
         for (int i = 0; i < 5; i++){
@@ -44,16 +45,15 @@ public class Hra {
 
         for (int i = 0; i < pocetHracov; i++){
             hraci[i] = new Hrac(i+1);
-            hraci[i].dostaneKarty(balicekAkcnychKariet);
+            hraci[i].dostaneKarty(akcneKarty);
             for (int j = 0; j < 5; j++){
                 kackyVoda.add(new Kacka(hraci[i]));
             }
         }
 
-        BalicekKackyVoda balicekKackyVoda = new BalicekKackyVoda(kackyVoda);
-        balicekKackyVoda.zamiesajKarty();
+        Collections.shuffle(kackyVoda);
 
-        HraciePole rybnik = new HraciePole(balicekKackyVoda);
+         this.rybnik = new HraciePole(kackyVoda);
 
         }
 
