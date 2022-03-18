@@ -1,8 +1,8 @@
 package sk.stuba.fei.uim.oop.karta.akcne;
 
 import sk.stuba.fei.uim.oop.hrac.Hrac;
+import sk.stuba.fei.uim.oop.karta.*;
 import sk.stuba.fei.uim.oop.rybnik.HraciePole;
-import sk.stuba.fei.uim.oop.karta.Karta;
 import sk.stuba.fei.uim.oop.utility.KeyboardInput;
 
 import java.util.List;
@@ -19,8 +19,13 @@ public class Turbokacka extends AkcnaKarta{
         while (n > 6 || n < 1){
             n = KeyboardInput.readInt("Rybník taký veľký nie je! Skús znovu");
         }
-        Karta kacka = rybnik.getRybnik().remove(n-1);
-        rybnik.getRybnik().add(0,kacka);
+
+        while (rybnik.getRybnik().get(n-1) instanceof Voda){
+            n = KeyboardInput.readInt("Vyber kačku, nie vodu... ");
+        }
+
+        Karta karta = rybnik.getRybnik().remove(n-1);
+        rybnik.getRybnik().add(0,karta);
 
     }
     }

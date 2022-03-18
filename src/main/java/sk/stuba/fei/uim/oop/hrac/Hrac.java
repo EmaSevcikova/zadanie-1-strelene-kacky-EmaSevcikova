@@ -63,10 +63,6 @@ public class Hrac {
         balicek.add(this.kartyNaRuke.remove(n-1));
     }
 
-    public AkcnaKarta zahrajKartu(){
-        int n = KeyboardInput.readInt("Vyber kartu: ");
-        return this.kartyNaRuke.remove(n-1);
-    }
 
     public String vypisKartyNaRuke(){
         StringBuilder vypis = new StringBuilder();

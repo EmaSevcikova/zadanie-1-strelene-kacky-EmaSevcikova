@@ -42,11 +42,12 @@ public class HraciePole {
 
     public String vypisHraciePole(){
         StringBuilder vypis = new StringBuilder();
-        for (Karta karta : this.rybnik){
+        int index = 0;
+        for (Karta karta : rybnik){
             if (karta instanceof Kacka){
-                vypis.append(this.rybnik.indexOf(karta)+1);
+                vypis.append(rybnik.indexOf(karta)+1);
                 vypis.append(". ");
-                vypis.append(this.vypisZameriavac(this.rybnik.indexOf(karta)));
+                vypis.append(vypisZameriavac(index));
                 vypis.append(" - ");
                 vypis.append("Kačka hráča ");
                 vypis.append(karta.getKohoKacka());
@@ -55,12 +56,12 @@ public class HraciePole {
             else{
                 vypis.append(this.rybnik.indexOf(karta)+1);
                 vypis.append(". ");
-                vypis.append(this.vypisZameriavac(this.rybnik.indexOf(karta)));
+                vypis.append(vypisZameriavac(index));
                 vypis.append(" - ");
                 vypis.append("Voda");
                 vypis.append("\n");
             }
-
+            index++;
         }
         return vypis.toString();
     }

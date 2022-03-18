@@ -16,12 +16,15 @@ public class Zamierit extends AkcnaKarta{
     @Override
     public void akciaKarty(HraciePole rybnik, List<Karta> balicek, Hrac[] hraci){
         int n = KeyboardInput.readInt("Kam chceš zamieriť? ");
+
         while (n > 6 || n < 1){
             n = KeyboardInput.readInt("Snáď nechceš mieriť mimo rybníka?! ");
         }
 
-        if (!rybnik.getZameriavace()[n - 1]) {
-            rybnik.getZameriavace()[n - 1] = true;
+        while(rybnik.getZameriavace()[n - 1]) {
+            n = KeyboardInput.readInt("Toto políčko už je zamierené. Vyber iné ");
         }
+
+        rybnik.getZameriavace()[n - 1] = true;
     }
 }

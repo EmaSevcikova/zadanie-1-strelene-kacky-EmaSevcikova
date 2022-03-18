@@ -19,10 +19,14 @@ public class Vystrelit extends AkcnaKarta{
         while (n > 6 || n < 1){
             n = KeyboardInput.readInt("Strieľaš mimo rybníka! Skús znovu");
         }
-        if (rybnik.getZameriavace()[n-1]){
-            this.vystrelNaKacku(n,rybnik,balicek,hraci);
-            rybnik.getZameriavace()[n-1] = false;
+
+        while (!rybnik.getZameriavace()[n-1]){
+            n = KeyboardInput.readInt("Toto políčko nie je zamierené. Vyber iné ");
         }
+
+        this.vystrelNaKacku(n,rybnik,balicek,hraci);
+        rybnik.getZameriavace()[n-1] = false;
+
     }
 
 

@@ -22,6 +22,7 @@ public class Hra {
         pripravHru();
         while (vitaz()){
         for (int i = 0; i < hraci.length; i++) {
+            System.out.println("\n");
             System.out.println(rybnik.vypisHraciePole());
             System.out.println("--------");
             System.out.println("Karty hráča " + hraci[i].getCisloHraca());
@@ -61,7 +62,7 @@ public class Hra {
         }
 
 
-        int pocetHracov = KeyboardInput.readInt("Zvol si pocet hracov ");
+        int pocetHracov = KeyboardInput.readInt("Zvol si počet hráčov ");
         while (2 > pocetHracov ||  pocetHracov > 6 ){
             pocetHracov = KeyboardInput.readInt("Hráčov môže byť minimálne 2 a maximálne 6 ");
         }
