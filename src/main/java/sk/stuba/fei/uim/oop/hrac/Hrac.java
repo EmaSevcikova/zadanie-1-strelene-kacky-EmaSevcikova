@@ -5,14 +5,13 @@ import sk.stuba.fei.uim.oop.karta.akcne.AkcnaKarta;
 import sk.stuba.fei.uim.oop.utility.KeyboardInput;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Hrac {
     private boolean aktivny;
     private int cisloHraca;
     private int pocetKaciek;
-    private ArrayList<AkcnaKarta> kartyNaRuke;
+    private List<AkcnaKarta> kartyNaRuke;
 
 
     public Hrac(int cislo) {
@@ -34,14 +33,19 @@ public class Hrac {
         return pocetKaciek;
     }
 
+    public List<AkcnaKarta> getKartyNaRuke() {
+        return kartyNaRuke;
+    }
+
     public void zastrelKacku() {
         this.pocetKaciek = this.pocetKaciek - 1;
     }
 
-    public void jeAktivny() {
+    public boolean jeAktivny() {
         if(getPocetKaciek() <= 0){
             this.aktivny = false;
         }
+        return this.aktivny;
     }
 
     public void tahajKartu(List<AkcnaKarta> balicek){
@@ -62,6 +66,18 @@ public class Hrac {
     public AkcnaKarta zahrajKartu(){
         int n = KeyboardInput.readInt("Vyber kartu: ");
         return this.kartyNaRuke.remove(n-1);
+    }
+
+    public String vypisKartyNaRuke(){
+        StringBuilder vypis = new StringBuilder();
+        for (AkcnaKarta karta : this.kartyNaRuke){
+            vypis.append(this.kartyNaRuke.indexOf(karta)+1);
+            vypis.append(". ");
+            vypis.append(karta.getNazovKarty());
+            vypis.append("\n");
+        }
+
+        return vypis.toString();
     }
 
 }
