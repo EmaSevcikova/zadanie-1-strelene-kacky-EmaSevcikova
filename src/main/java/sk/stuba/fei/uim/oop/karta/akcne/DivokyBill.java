@@ -15,14 +15,14 @@ public class DivokyBill extends AkcnaKarta{
 
     @Override
     public void akciaKarty(HraciePole rybnik, List<Karta> balicek, Hrac[] hraci){
-        int n = KeyboardInput.readInt("Namier a vystreľ! Ale kam? ");
-        while (n > 6 || n < 1){
-            n = KeyboardInput.readInt("Strieľaš mimo rybníka! Skús znovu");
+        int cisloKarty = KeyboardInput.readInt("Namier a vystreľ! Ale kam? ");
+        while (cisloKarty > 6 || cisloKarty < 1){
+            cisloKarty = KeyboardInput.readInt("Strieľaš mimo rybníka! Skús znovu");
         }
-        this.vystrelNaKacku(n,rybnik,balicek,hraci);
+        this.vystrelNaKacku(cisloKarty,rybnik,balicek,hraci);
 
-        if (rybnik.getZameriavace()[n-1]){
-            rybnik.getZameriavace()[n-1] = false;
+        if (rybnik.getZameriavace()[cisloKarty-1]){
+            rybnik.getZameriavace()[cisloKarty-1] = false;
         }
     }
 }

@@ -3,10 +3,15 @@ package sk.stuba.fei.uim.oop.rybnik;
 import sk.stuba.fei.uim.oop.hra.Hra;
 import sk.stuba.fei.uim.oop.karta.Kacka;
 import sk.stuba.fei.uim.oop.karta.Karta;
+import sk.stuba.fei.uim.oop.karta.akcne.AkcnaKarta;
+import sk.stuba.fei.uim.oop.karta.akcne.Turbokacka;
+import sk.stuba.fei.uim.oop.karta.akcne.Vystrelit;
+import sk.stuba.fei.uim.oop.karta.akcne.Zamierit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 
 public class HraciePole {
@@ -65,4 +70,6 @@ public class HraciePole {
         }
         return vypis.toString();
     }
+
+
 }

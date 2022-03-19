@@ -15,17 +15,17 @@ public class Vystrelit extends AkcnaKarta{
 
     @Override
     public void akciaKarty(HraciePole rybnik, List<Karta> balicek, Hrac[] hraci){
-        int n = KeyboardInput.readInt("Ktorú kačku chceš zastreliť? ");
-        while (n > 6 || n < 1){
-            n = KeyboardInput.readInt("Strieľaš mimo rybníka! Skús znovu");
+        int cisloKarty = KeyboardInput.readInt("Ktorú kačku chceš zastreliť? ");
+        while (cisloKarty > 6 || cisloKarty < 1){
+            cisloKarty = KeyboardInput.readInt("Strieľaš mimo rybníka! Skús znovu");
         }
 
-        while (!rybnik.getZameriavace()[n-1]){
-            n = KeyboardInput.readInt("Toto políčko nie je zamierené. Vyber iné ");
+        while (!rybnik.getZameriavace()[cisloKarty-1]){
+            cisloKarty = KeyboardInput.readInt("Toto políčko nie je zamierené. Vyber iné ");
         }
 
-        this.vystrelNaKacku(n,rybnik,balicek,hraci);
-        rybnik.getZameriavace()[n-1] = false;
+        this.vystrelNaKacku(cisloKarty,rybnik,balicek,hraci);
+        rybnik.getZameriavace()[cisloKarty-1] = false;
 
     }
 

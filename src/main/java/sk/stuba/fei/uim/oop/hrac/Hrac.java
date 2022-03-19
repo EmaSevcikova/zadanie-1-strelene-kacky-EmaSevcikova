@@ -1,6 +1,5 @@
 package sk.stuba.fei.uim.oop.hrac;
 
-import sk.stuba.fei.uim.oop.karta.*;
 import sk.stuba.fei.uim.oop.karta.akcne.AkcnaKarta;
 import sk.stuba.fei.uim.oop.utility.KeyboardInput;
 
@@ -59,8 +58,8 @@ public class Hrac {
     }
 
     public void vratKartu(List<AkcnaKarta> balicek){
-        int n = KeyboardInput.readInt("Ktoru kartu chces vratit? ");
-        balicek.add(this.kartyNaRuke.remove(n-1));
+        //int n = KeyboardInput.readInt("Ktoru kartu chces vratit? ");
+        balicek.add(this.kartyNaRuke.remove(0));
     }
 
 
@@ -75,5 +74,6 @@ public class Hrac {
 
         return vypis.toString();
     }
+
 
 }
