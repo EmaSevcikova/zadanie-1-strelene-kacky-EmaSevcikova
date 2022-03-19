@@ -15,8 +15,11 @@ public class KacaciTanec extends AkcnaKarta{
 
     @Override
     public void akciaKarty(HraciePole rybnik, List<Karta> balicek, Hrac[] hraci) {
-        balicek.addAll(rybnik.getRybnik());
+        for (int i = 0; i < 6; i++) {
+            balicek.add(rybnik.getRybnik().remove(0));
+        }
         Collections.shuffle(balicek);
+
         for (int i = 0; i < 6; i++) {
             rybnik.getRybnik().add(balicek.remove(0));
         }

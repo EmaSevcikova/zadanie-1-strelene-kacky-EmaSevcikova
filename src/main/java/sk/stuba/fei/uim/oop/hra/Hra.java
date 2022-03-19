@@ -1,7 +1,6 @@
 package sk.stuba.fei.uim.oop.hra;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -23,38 +22,42 @@ public class Hra {
         pripravHru();
         while (vitaz()){
         for (int i = 0; i < hraci.length; i++) {
-            System.out.println("\n");
-            System.out.println(rybnik.vypisHraciePole());
+            if (hraci[i].jeAktivny()) {
+                System.out.println("\n");
+                System.out.println(rybnik.vypisHraciePole());
 
-            System.out.println(" \n--------");
-            System.out.println("Karty hráča " + hraci[i].getCisloHraca());
-            System.out.println(hraci[i].vypisKartyNaRuke());
-            System.out.println("--------");
-
-            while (!daSaNejakaKartaZahrat(hraci[i])){
-                System.out.println("Z tvojích kariet sa nedá žiadna zahrať. Ťaháš si novú.");
-                hraci[i].vratKartu(akcneKarty);
-                hraci[i].tahajKartu(akcneKarty);
                 System.out.println(" \n--------");
                 System.out.println("Karty hráča " + hraci[i].getCisloHraca());
                 System.out.println(hraci[i].vypisKartyNaRuke());
                 System.out.println("--------");
-            }
 
-            int cisloKarty = KeyboardInput.readInt("Si na ťahu! Vyber kartu, ktorú chceš zahrať ");
-            while (1 > cisloKarty ||  cisloKarty > 3 ){
-                cisloKarty = KeyboardInput.readInt("Toľko kariet nemáš... Vyberáš znovu ");
-            }
-            AkcnaKarta karta = hraci[i].getKartyNaRuke().remove(cisloKarty - 1);
-            karta.akciaKarty(rybnik, balicekKackyVoda, hraci);
-            akcneKarty.add(karta);
+                while (!daSaNejakaKartaZahrat(hraci[i])) {
+                    System.out.println("Z tvojích kariet sa nedá žiadna zahrať. Ťaháš si novú.");
+                    hraci[i].vratKartu(akcneKarty);
+                    hraci[i].tahajKartu(akcneKarty);
+                    System.out.println(" \n--------");
+                    System.out.println("Karty hráča " + hraci[i].getCisloHraca());
+                    System.out.println(hraci[i].vypisKartyNaRuke());
+                    System.out.println("--------");
+                }
 
-            hraci[i].tahajKartu(akcneKarty);
+                int cisloKarty = KeyboardInput.readInt("Si na ťahu! Vyber kartu, ktorú chceš zahrať ");
+                while (1 > cisloKarty || cisloKarty > 3) {
+                    cisloKarty = KeyboardInput.readInt("Toľko kariet nemáš... Vyberáš znovu ");
+                }
+                AkcnaKarta karta = hraci[i].getKartyNaRuke().remove(cisloKarty - 1);
+                karta.akciaKarty(rybnik, balicekKackyVoda, hraci);
+                akcneKarty.add(karta);
 
-            System.out.println("\nPočet kačiek hráčov:");
-            for (int j = 0; j < hraci.length; j++){
-                System.out.print("Hráč " + (j+1) + ". " + hraci[j].getPocetKaciek() + "| ");
+                hraci[i].tahajKartu(akcneKarty);
+
+                System.out.println("\nPočet kačiek hráčov:");
+                for (int j = 0; j < hraci.length; j++) {
+                    System.out.print("Hráč " + (j + 1) + ". " + hraci[j].getPocetKaciek() + "| ");
+                }
             }
+        if (!vitaz())
+            break;
         }
         }
 
@@ -142,6 +145,13 @@ public class Hra {
         for (Hrac hrac : this.hraci){
             if (hrac.jeAktivny()){
                 pocetAktivnychHracov += 1;
+            }
+        }
+        if (pocetAktivnychHracov == 1){
+            for (Hrac hrac : this.hraci){
+                if (hrac.jeAktivny()){
+                    System.out.println("Vyhral hráč č." + hrac.getCisloHraca());
+                }
             }
         }
             return pocetAktivnychHracov > 1;
