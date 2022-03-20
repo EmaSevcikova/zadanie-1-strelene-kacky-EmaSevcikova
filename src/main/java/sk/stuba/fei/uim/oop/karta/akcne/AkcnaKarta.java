@@ -16,7 +16,7 @@ public abstract class AkcnaKarta {
         return nazovKarty;
     }
 
-    public void vystrelNaKacku(int n, HraciePole rybnik, List<Karta> balicek, Hrac[] hraci){
+    protected void vystrelNaKacku(int n, HraciePole rybnik, List<Karta> balicek, Hrac[] hraci){
         if (rybnik.getRybnik().get(n-1) instanceof Kacka){
             Karta kacka = rybnik.getRybnik().remove(n-1);
             rybnik.getRybnik().add(balicek.remove(0));
