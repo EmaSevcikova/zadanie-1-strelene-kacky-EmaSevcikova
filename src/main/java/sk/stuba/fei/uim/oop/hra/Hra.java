@@ -162,13 +162,6 @@ public class Hra {
                 pocetAktivnychHracov += 1;
             }
         }
-//        if (pocetAktivnychHracov == 1){
-//            for (Hrac hrac : this.hraci){
-//                if (hrac.jeAktivny()){
-//                    System.out.println("\nVyhral hráč č." + hrac.getCisloHraca());
-//                }
-//            }
-//        }
             return pocetAktivnychHracov > 1;
         }
 
