@@ -19,13 +19,13 @@ public class Hra {
 
     public void streleneKacky(){
         System.out.println("__________Vitaj v hre strelené kačky!__________\n");
+        pripravHru();
         zacniHru();
         System.out.println("__________Koniec hry.__________");
     }
 
 
     public void zacniHru(){
-        pripravHru();
         while (vitaz()){
         for (int i = 0; i < hraci.length; i++) {
             if (hraci[i].jeAktivny()) {
@@ -152,7 +152,6 @@ public class Hra {
         else{
             return true;
         }
-
         }
 
         public boolean vitaz(){
