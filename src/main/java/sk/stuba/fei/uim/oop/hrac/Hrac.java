@@ -1,16 +1,15 @@
 package sk.stuba.fei.uim.oop.hrac;
 
 import sk.stuba.fei.uim.oop.karta.akcne.AkcnaKarta;
-import sk.stuba.fei.uim.oop.utility.KeyboardInput;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Hrac {
     private boolean aktivny;
-    private int cisloHraca;
+    private final int cisloHraca;
     private int pocetKaciek;
-    private List<AkcnaKarta> kartyNaRuke;
+    private final List<AkcnaKarta> kartyNaRuke;
 
 
     public Hrac(int cislo) {
@@ -33,10 +32,12 @@ public class Hrac {
     }
 
     public List<AkcnaKarta> getKartyNaRuke() {
+
         return kartyNaRuke;
     }
 
     public void zastrelKacku() {
+
         this.pocetKaciek = this.pocetKaciek - 1;
     }
 
@@ -58,7 +59,6 @@ public class Hrac {
     }
 
     public void vratKartu(List<AkcnaKarta> balicek){
-        //int n = KeyboardInput.readInt("Ktoru kartu chces vratit? ");
         balicek.add(this.kartyNaRuke.remove(0));
     }
 

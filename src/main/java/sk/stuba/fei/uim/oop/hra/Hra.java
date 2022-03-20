@@ -17,6 +17,12 @@ public class Hra {
     List<Karta> balicekKackyVoda;
     List<AkcnaKarta> akcneKarty;
 
+    public void streleneKacky(){
+        System.out.println("__________Vitaj v hre strelené kačky!__________\n");
+        zacniHru();
+        System.out.println("__________Koniec hry.__________");
+    }
+
 
     public void zacniHru(){
         pripravHru();
@@ -45,6 +51,11 @@ public class Hra {
                 while (1 > cisloKarty || cisloKarty > 3) {
                     cisloKarty = KeyboardInput.readInt("Toľko kariet nemáš... Vyberáš znovu ");
                 }
+
+                while (!daSaKartaZahrat(hraci[i].getKartyNaRuke().get(cisloKarty-1))){
+                    cisloKarty = KeyboardInput.readInt("Túto kartu nemôžeš zahrať. Vyber si inú. ");
+                }
+
                 AkcnaKarta karta = hraci[i].getKartyNaRuke().remove(cisloKarty - 1);
                 karta.akciaKarty(rybnik, balicekKackyVoda, hraci);
                 akcneKarty.add(karta);
@@ -60,7 +71,11 @@ public class Hra {
             break;
         }
         }
-
+        for (Hrac hrac : this.hraci){
+            if (hrac.jeAktivny()){
+                System.out.println("\nVyhral hráč č." + hrac.getCisloHraca());
+            }
+        }
 
     }
 
@@ -147,13 +162,13 @@ public class Hra {
                 pocetAktivnychHracov += 1;
             }
         }
-        if (pocetAktivnychHracov == 1){
-            for (Hrac hrac : this.hraci){
-                if (hrac.jeAktivny()){
-                    System.out.println("Vyhral hráč č." + hrac.getCisloHraca());
-                }
-            }
-        }
+//        if (pocetAktivnychHracov == 1){
+//            for (Hrac hrac : this.hraci){
+//                if (hrac.jeAktivny()){
+//                    System.out.println("\nVyhral hráč č." + hrac.getCisloHraca());
+//                }
+//            }
+//        }
             return pocetAktivnychHracov > 1;
         }
 

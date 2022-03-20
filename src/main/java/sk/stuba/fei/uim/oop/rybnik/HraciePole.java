@@ -1,23 +1,20 @@
 package sk.stuba.fei.uim.oop.rybnik;
 
-import sk.stuba.fei.uim.oop.hra.Hra;
+
 import sk.stuba.fei.uim.oop.karta.Kacka;
 import sk.stuba.fei.uim.oop.karta.Karta;
-import sk.stuba.fei.uim.oop.karta.akcne.AkcnaKarta;
-import sk.stuba.fei.uim.oop.karta.akcne.Turbokacka;
-import sk.stuba.fei.uim.oop.karta.akcne.Vystrelit;
-import sk.stuba.fei.uim.oop.karta.akcne.Zamierit;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
+
 
 
 public class HraciePole {
 
-    private ArrayList<Karta> rybnik;
-    private boolean[] zameriavace;
+    private final ArrayList<Karta> rybnik;
+    private final boolean[] zameriavace;
 
     public HraciePole(List<Karta> karty){
         this.rybnik = new ArrayList<>();
@@ -29,10 +26,12 @@ public class HraciePole {
     }
 
     public ArrayList<Karta> getRybnik() {
+
         return rybnik;
     }
 
     public boolean[] getZameriavace() {
+
         return zameriavace;
     }
 
