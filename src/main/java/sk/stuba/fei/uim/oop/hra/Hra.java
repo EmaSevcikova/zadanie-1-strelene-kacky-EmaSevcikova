@@ -14,8 +14,12 @@ public class Hra {
 
     private Hrac[] hraci;
     private HraciePole rybnik;
-    List<Karta> balicekKackyVoda;
-    List<AkcnaKarta> akcneKarty;
+    private List<Karta> balicekKackyVoda;
+    private List<AkcnaKarta> akcneKarty;
+
+    public Hra() {
+        streleneKacky();
+    }
 
     public void streleneKacky(){
         System.out.println("__________Vitaj v hre strelené kačky!__________\n");
